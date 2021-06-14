@@ -12,8 +12,8 @@
 ///prototypes////
 
 
-void light_pixel(double, double , SDL_Renderer *);
-void julia_set(double,double ,SDL_Renderer *);
+void light_pixel(int, int , SDL_Renderer *);
+void julia_set(int,int ,SDL_Renderer *);
 #endif
 
 
