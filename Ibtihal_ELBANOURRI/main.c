@@ -19,7 +19,7 @@ int main(int argc ,char *argv[])
                 j = 0;
                 while(j!=500)
                 {
-                	mandelbrot(i,j,renderer);                      
+                	julia_set(i,j,renderer);                      
                     	j++;	
 		}
 		
