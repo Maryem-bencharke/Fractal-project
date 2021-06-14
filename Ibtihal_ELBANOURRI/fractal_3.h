@@ -7,7 +7,7 @@
 #include "SDL2/SDL_image.h"
 #include<stdlib.h>
 #include<stdio.h>
-#define iteration_max 50
+
 
 ///prototypes////
 
