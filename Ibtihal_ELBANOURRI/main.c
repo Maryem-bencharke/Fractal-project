@@ -36,18 +36,14 @@ int main(int argc ,char *argv[])
                 while (SDL_PollEvent(&event))
                 {
                     if (event.type == SDL_QUIT)
-                    {
                         done = SDL_TRUE;
-                    }
                 }
             }
         }
-        if(renderer){
+        if(renderer)
             SDL_DestroyRenderer(renderer);
-        }
-        if(window){
+        if(window)
             SDL_DestroyWindow(window);
-        }
     }
     SDL_Quit();
     return 0;
