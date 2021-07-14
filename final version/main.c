@@ -51,7 +51,7 @@ int main(int argc ,char *argv[])
 						{
 
 							case SDLK_w:
-								//fprintf(stdout, "[%u ms] MouseButton\ttype:%d\tid:%d\tx:%d\ty:%d\tbutton:%d\tstate:%d\n",event.button.timestamp, event.button.type, event.button.which, event.button.x, event.button.y, event.button.button, event.button.state);
+								
 								SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 								SDL_RenderClear(renderer);
 								SDL_RenderPresent(renderer);
@@ -123,7 +123,7 @@ int main(int argc ,char *argv[])
 						switch(event.key.keysym.sym)
 						{
     						case SDL_MOUSEMOTION:
-									//fprintf(stdout, "[%u ms] MouseMotion\ttype:%d\twhich:\tx:%d\ty:%d\txrel:%d\tyrel:%d\n",event.motion.timestamp, event.motion.type, event.motion.which, event.motion.x, event.motion.y, event.motion.xrel, event.motion.yrel);
+									
 									SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 									SDL_RenderClear(renderer);
 									SDL_RenderPresent(renderer);
@@ -145,7 +145,7 @@ int main(int argc ,char *argv[])
     						break;
 					
     						case SDL_MOUSEBUTTONUP:
-									fprintf(stdout, "[%u ms] MouseButton\ttype:%d\tid:%d\tx:%d\ty:%d\tbutton:%d\tstate:%d\n",event.button.timestamp, event.button.type, event.button.which, event.button.x, event.button.y, event.button.button, event.button.state);
+									
 									SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 									SDL_RenderClear(renderer);
 									SDL_RenderPresent(renderer);
@@ -167,7 +167,7 @@ int main(int argc ,char *argv[])
     						break;
 						
     						case SDL_MOUSEWHEEL:
-									//fprintf(stdout, "[%u ms] MouseWheel\ttype:%d\tid:%d\tx:%d\ty:%d\n",event.wheel.timestamp, event.wheel.type, event.wheel.which, event.wheel.x, event.wheel.y);
+								
 									SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 									SDL_RenderClear(renderer);
 									SDL_RenderPresent(renderer);
@@ -239,7 +239,7 @@ int main(int argc ,char *argv[])
 						{
 
 							case SDLK_z:
-								//fprintf(stdout, "[%u ms] MouseButton\ttype:%d\tid:%d\tx:%d\ty:%d\tbutton:%d\tstate:%d\n",event.button.timestamp, event.button.type, event.button.which, event.button.x, event.button.y, event.button.button, event.button.state);
+								
 								SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 								SDL_RenderClear(renderer);
 								SDL_RenderPresent(renderer);
