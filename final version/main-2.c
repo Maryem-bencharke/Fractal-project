@@ -82,21 +82,6 @@ int main(int argc ,char *argv[])
 								
 								
 							break;
-							/*
-							int i=0,zoom=100,j;
-							while(i!=500)
-							{
-								j = 0;
-								while(j!=500)
-								{
-									mandelbrot(i,j,renderer,zoom);
-									zoom+=10;
-									j++;
-						
-								
-								}
-							}
-							*/
 
 						}
 					
@@ -180,15 +165,16 @@ int main(int argc ,char *argv[])
             						}	       
 									SDL_RenderPresent(renderer);
 		
-									//i = event.motion.x;
-									//j = event.motion.y;
+		
 									zoom = zoom + 5;
 								}
     						break;
 					
-    						/*case SDL_MOUSEBUTTONDOWN:
+    						case SDL_MOUSEBUTTONDOWN:
 									if(event.motion.x && event.motion.y)
 									{
+										i = event.motion.x;
+										j = event.motion.y;
 										SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 										SDL_RenderClear(renderer);
       			      						while(i !=500)
@@ -204,7 +190,7 @@ int main(int argc ,char *argv[])
 										SDL_RenderPresent(renderer);
 									}
 									
-    						break;*/
+    						break;
 						}
 						
 					}
