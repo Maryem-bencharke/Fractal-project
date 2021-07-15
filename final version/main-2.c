@@ -244,7 +244,7 @@ int main(int argc ,char *argv[])
 						switch(event.key.keysym.sym)
 						{
 
-							case SDLK_z:
+							/*case SDLK_z:
 								
 								SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 								SDL_RenderClear(renderer);
@@ -263,7 +263,39 @@ int main(int argc ,char *argv[])
 	                						i++;
 	            						}       
 								SDL_RenderPresent(renderer);
-								break;
+								break;*/
+							int i = 0, j;
+							int zoom = 200;	
+    						case SDL_MOUSEMOTION:
+									
+								if( event.motion.x && event.motion.y)
+								{ 
+									i = event.motion.x;
+									j = event.motion.y;
+									SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
+									SDL_RenderClear(renderer);
+									
+            						while(i !=500)
+            						{
+										
+									
+                						j = 0;
+										
+                						while(j!=500)
+                						{
+										 	
+                							burning_ship(i,j,renderer,zoom);    
+                  							j++;
+               							}
+								
+                						i++;
+            						}	       
+									SDL_RenderPresent(renderer);
+		
+		
+									zoom = zoom + 5;
+								}
+    						break;
 						}		
             		}
         	}
