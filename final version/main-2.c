@@ -52,36 +52,39 @@ int main(int argc ,char *argv[])
 							break;
 						}	
 
-						switch(event.key.keysym.sym)
+						switch(event.type)
 						{
-
-							case SDLK_w:
-								
-								SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
-								SDL_RenderClear(renderer);
-								
-								int i = 0,j;
-								int zoom = 200;
-					
+							int i = 0, j;
+							int zoom = 200;	
+    						case SDL_MOUSEMOTION:
+								if( event.motion.x && event.motion.y)
+								{ 
+									//SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
+									//SDL_RenderClear(renderer);
+									
             						while(i !=500)
             						{
-								
+										
+									
                 						j = 0;
-
+										
                 						while(j!=500)
                 						{
-                							mandelbrot(i,j,renderer,zoom);
-								 			j++;
-											
+										 	
+                							mandelbrot(i,j,renderer,zoom);    
+                  							j++;
                							}
-							
+								
                 						i++;
-            						} 
-									      
-								SDL_RenderPresent(renderer);
-								
-								
-							break;
+            						}	       
+									SDL_RenderPresent(renderer);
+		
+									i = event.motion.x;
+									j = event.motion.y;
+									zoom = zoom + 5;
+								}
+    						break;
+							
 
 						}
 					
