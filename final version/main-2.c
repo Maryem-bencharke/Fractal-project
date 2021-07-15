@@ -173,7 +173,7 @@ int main(int argc ,char *argv[])
 								}
     						break;
 					
-    						case SDL_MOUSEBUTTONDOWN:
+    						/*case SDL_MOUSEBUTTONDOWN:
 									if(event.motion.x && event.motion.y)
 									{
 										i = event.motion.x;
@@ -193,7 +193,7 @@ int main(int argc ,char *argv[])
 										SDL_RenderPresent(renderer);
 									}
 									
-    						break;
+    						break;*/
 						}
 						
 					}
