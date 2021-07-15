@@ -1,4 +1,4 @@
-#include"fractal.h"
+#include"fractal-2.h"
 
 int main(int argc ,char *argv[])
 {
@@ -7,6 +7,9 @@ int main(int argc ,char *argv[])
 		printf("ERROR");
 		exit(EXIT_FAILURE);
     }
+
+	
+	 
                /*---------------------------------mandelbrot set ----------------------------------*/
 
     if(strcmp(argv[1],"mandelbrot")==0)
@@ -30,13 +33,15 @@ int main(int argc ,char *argv[])
                   			j++;
                			}
                 		i++;
-            		}       
+            		} 
+					
          
             		SDL_RenderPresent(renderer);
 			
 				while (running) 
 				{
 					SDL_Event event;
+				
 
 					while (SDL_PollEvent(&event)) 
 					{
@@ -51,24 +56,31 @@ int main(int argc ,char *argv[])
 						{
 
 							case SDLK_w:
-								//fprintf(stdout, "[%u ms] MouseButton\ttype:%d\tid:%d\tx:%d\ty:%d\tbutton:%d\tstate:%d\n",event.button.timestamp, event.button.type, event.button.which, event.button.x, event.button.y, event.button.button, event.button.state);
+								
 								SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 								SDL_RenderClear(renderer);
-								SDL_RenderPresent(renderer);
+								
 								int i = 0,j;
+								int zoom = 200;
 					
             						while(i !=500)
             						{
+								
                 						j = 0;
 
                 						while(j!=500)
                 						{
-                							mandelbrot(i,j,renderer,200);
-								 	j++;
+                							mandelbrot(i,j,renderer,zoom);
+								 			j++;
+											
                							}
+							
                 						i++;
-            						}       
+            						} 
+									      
 								SDL_RenderPresent(renderer);
+								
+								
 							break;
 							/*
 							int i=0,zoom=100,j;
@@ -78,7 +90,7 @@ int main(int argc ,char *argv[])
 								while(j!=500)
 								{
 									mandelbrot(i,j,renderer,zoom);
-									zoom+=50;
+									zoom+=10;
 									j++;
 						
 								
@@ -87,10 +99,11 @@ int main(int argc ,char *argv[])
 							*/
 
 						}
-
+					
 					}	
 				}
 			}
+		
 
         	if(renderer)
             		SDL_DestroyRenderer(renderer);
@@ -121,7 +134,7 @@ int main(int argc ,char *argv[])
                 		j = 0;
                 		while(j!=500)
                 		{
-                			julia_set(i,j,renderer);    
+                			julia_set(i,j,renderer,100);    
                   			j++;
                			}
                 		i++;
@@ -137,73 +150,63 @@ int main(int argc ,char *argv[])
                     			if (event.type == SDL_QUIT)
                         			done = SDL_TRUE;
                 		}
-						switch(event.key.keysym.sym)
+						switch(event.type)
 						{
+							int i = 0, j;
+							int zoom = 200;	
     						case SDL_MOUSEMOTION:
-									//fprintf(stdout, "[%u ms] MouseMotion\ttype:%d\twhich:\tx:%d\ty:%d\txrel:%d\tyrel:%d\n",event.motion.timestamp, event.motion.type, event.motion.which, event.motion.x, event.motion.y, event.motion.xrel, event.motion.yrel);
+									
+								if( event.motion.x && event.motion.y)
+								{ 
+									i = event.motion.x;
+									j = event.motion.y;
 									SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 									SDL_RenderClear(renderer);
-									SDL_RenderPresent(renderer);
-						
-									int i = 0, j;
-
+									
             						while(i !=500)
             						{
+										
+									
                 						j = 0;
+										
                 						while(j!=500)
                 						{
-                							julia_set(i,j,renderer);    
+										 	
+                							julia_set(i,j,renderer,zoom);    
                   							j++;
                							}
+								
                 						i++;
             						}	       
 									SDL_RenderPresent(renderer);
-					
+		
+									//i = event.motion.x;
+									//j = event.motion.y;
+									zoom = zoom + 5;
+								}
     						break;
 					
-    						case SDL_MOUSEBUTTONUP:
-									fprintf(stdout, "[%u ms] MouseButton\ttype:%d\tid:%d\tx:%d\ty:%d\tbutton:%d\tstate:%d\n",event.button.timestamp, event.button.type, event.button.which, event.button.x, event.button.y, event.button.button, event.button.state);
-									SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
-									SDL_RenderClear(renderer);
-									SDL_RenderPresent(renderer);
-						
-									//int i = 0, j;
-						
-      			      					while(i !=500)
-      			      					{
-      			          					j = 0;
-      			          					while(j!=500)
-      			          					{
-      			          						julia_set(i,j,renderer);   
-      		            						j++;
-      		         						}
-      			          					i++;
-      			      					}       
-									SDL_RenderPresent(renderer);
-						
-    						break;
-						
-    						case SDL_MOUSEWHEEL:
-									//fprintf(stdout, "[%u ms] MouseWheel\ttype:%d\tid:%d\tx:%d\ty:%d\n",event.wheel.timestamp, event.wheel.type, event.wheel.which, event.wheel.x, event.wheel.y);
-									SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
-									SDL_RenderClear(renderer);
-									SDL_RenderPresent(renderer);
-
-									//int i = 0, j;
-
-	            						while(i !=500)
-	            						{
-	                						j = 0;
-	                						while(j!=500)
-	                						{
-	                							julia_set(i,j,renderer);    
-	                  							j++;
-	               							}
-	                						i++;
-	            						}       
-									SDL_RenderPresent(renderer);
-						    break;						
+    						/*case SDL_MOUSEBUTTONDOWN:
+									if(event.motion.x && event.motion.y)
+									{
+										SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
+										SDL_RenderClear(renderer);
+      			      						while(i !=500)
+      			      						{
+      			          						j = 0;
+      			          						while(j!=500)
+      			          						{
+      			          							julia_set(i,j,renderer,zoom);   
+      		            							j++;
+      		         							}
+      			          						i++;
+      			      						}       
+										SDL_RenderPresent(renderer);
+									}
+									
+    						break;*/
 						}
+						
 					}
 			}			
             		
@@ -256,7 +259,7 @@ int main(int argc ,char *argv[])
 						{
 
 							case SDLK_z:
-								//fprintf(stdout, "[%u ms] MouseButton\ttype:%d\tid:%d\tx:%d\ty:%d\tbutton:%d\tstate:%d\n",event.button.timestamp, event.button.type, event.button.which, event.button.x, event.button.y, event.button.button, event.button.state);
+								
 								SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 								SDL_RenderClear(renderer);
 								SDL_RenderPresent(renderer);
