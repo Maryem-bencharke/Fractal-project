@@ -243,27 +243,6 @@ int main(int argc ,char *argv[])
                 		}
 						switch(event.key.keysym.sym)
 						{
-
-							/*case SDLK_z:
-								
-								SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
-								SDL_RenderClear(renderer);
-								SDL_RenderPresent(renderer);
-								int i = 0, j;
-					
-            							while(i !=500)
-            							{	
-                							j = 0;
-
-	                						while(j!=500)
-	                						{
-	                							burning_ship(i,j,renderer,150);
-									 	j++;
-	               							}
-	                						i++;
-	            						}       
-								SDL_RenderPresent(renderer);
-								break;*/
 							int i = 0, j;
 							int zoom = 200;	
     						case SDL_MOUSEMOTION:
