@@ -56,27 +56,27 @@ int main(int argc ,char *argv[])
 						{
 							int i = 0, j;
 							int zoom = 200;	
-    						case SDL_MOUSEMOTION:
+    							case SDL_MOUSEMOTION:
 								if( event.motion.x && event.motion.y)
 								{ 
 									//SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 									//SDL_RenderClear(renderer);
 									
-            						while(i !=500)
-            						{
+            								while(i !=500)
+            								{
 										
 									
-                						j = 0;
+                								j = 0;
 										
-                						while(j!=500)
-                						{
+                								while(j!=500)
+                								{
 										 	
-                							mandelbrot(i,j,renderer,zoom);    
-                  							j++;
-               							}
+                									mandelbrot(i,j,renderer,zoom);    
+                  									j++;
+               									}
 								
-                						i++;
-            						}	       
+                								i++;
+            								}	       
 									SDL_RenderPresent(renderer);
 		
 									i = event.motion.x;
@@ -151,21 +151,21 @@ int main(int argc ,char *argv[])
 									SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 									SDL_RenderClear(renderer);
 									
-            						while(i !=500)
-            						{
+            								while(i !=500)
+            								{
 										
 									
-                						j = 0;
+                								j = 0;
 										
-                						while(j!=500)
-                						{
+                								while(j!=500)
+                								{
 										 	
-                							julia_set(i,j,renderer,zoom);    
-                  							j++;
-               							}
+                									julia_set(i,j,renderer,zoom);    
+                  									j++;
+               									}
 								
-                						i++;
-            						}	       
+                								i++;
+            								}	       
 									SDL_RenderPresent(renderer);
 		
 		
